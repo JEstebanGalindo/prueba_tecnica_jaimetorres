@@ -27,7 +27,7 @@ public class Medicamentos_Controller {
 	}
 	
 	@GetMapping(path = "/buscarCitasPorFechaHora/{fecha}/{hora_inicio}/{hora_fin}") 
-	public List<?> buscarCitasPorFechaHora(@PathVariable String fecha, @PathVariable String hora_inicio, @PathVariable String hora_fin) {
+	public List<Object[]> buscarCitasPorFechaHora(@PathVariable String fecha, @PathVariable String hora_inicio, @PathVariable String hora_fin) {
 		try {
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
@@ -44,7 +44,7 @@ public class Medicamentos_Controller {
 	}
 	
 	@GetMapping(path = "/buscarCitasPorFechaHoraMedico/{fecha}/{hora_inicio}/{hora_fin}/{id_medico}") 
-	public List<?> buscarCitasPorFechaHoraMedico(@PathVariable String fecha, @PathVariable String hora_inicio, @PathVariable String hora_fin, @PathVariable int id_medico) {
+	public List<Object[]> buscarCitasPorFechaHoraMedico(@PathVariable String fecha, @PathVariable String hora_inicio, @PathVariable String hora_fin, @PathVariable int id_medico) {
 		try {
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");

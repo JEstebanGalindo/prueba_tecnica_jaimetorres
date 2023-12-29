@@ -27,14 +27,14 @@ public interface Medicamento_Repository extends CrudRepository<Medicamento_Entit
 			+ "INNER JOIN Cita_Entity c ON c.paciente.id = p.id "
 			+ "INNER JOIN Medico_Entity m ON m.id = c.medico.id "
 			+ "WHERE c.fecha = :fecha AND c.hora BETWEEN :hora_inicio AND :hora_fin")
-	List<?> buscarCitasPorFechaHora (@Param("fecha") Date fecha, @Param("hora_inicio") Time hora_inicio,  @Param("hora_fin") Time hora_fin);
+	List<Object[]> buscarCitasPorFechaHora (@Param("fecha") Date fecha, @Param("hora_inicio") Time hora_inicio,  @Param("hora_fin") Time hora_fin);
 	
 	@Query("SELECT p.nombre, p.apellido, m.nombre "
 			+ "FROM Paciente_Entity p "
 			+ "INNER JOIN Cita_Entity c ON c.paciente.id = p.id "
 			+ "INNER JOIN Medico_Entity m ON m.id = c.medico.id "
 			+ "WHERE c.fecha = :fecha AND c.hora BETWEEN :hora_inicio AND :hora_fin AND m.id = :id_medico")
-	List<?> buscarCitasPorFechaHoraMedico (@Param("fecha") Date fecha, @Param("hora_inicio") Time hora_inicio,  @Param("hora_fin") Time hora_fin, @Param("id_medico") int id_medico);
+	List<Object[]> buscarCitasPorFechaHoraMedico (@Param("fecha") Date fecha, @Param("hora_inicio") Time hora_inicio,  @Param("hora_fin") Time hora_fin, @Param("id_medico") int id_medico);
 	
 	
 }
